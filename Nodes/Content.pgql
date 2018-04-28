@@ -1,11 +1,13 @@
 # pho-graphql-v1
 
-type Video implements ObjectNode 
-@edges(in:"Edges:Post, Edges:React, Edges:Comment, Edges:Consume")
+type Content implements ObjectNode 
+@edges(in:"Edges:Post, Edges:Like, Edges:Comment")
 @permissions(mod: "0x07500", mask: "0xfffff") # owner can write, friends can read and like (subscribe)
 @properties(expires: 0, editable: false, volatile: false, revisionable: false) 
 {
     id: ID!,
     url: String! @constraints(format: "url"),
+    thumb_url: String! @constraints(format: "url"),
+    type: String! @default(string: "photo"),
     create_time: Date! @now
 }
