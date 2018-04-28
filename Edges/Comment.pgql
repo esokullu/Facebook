@@ -1,7 +1,7 @@
 # pho-graphql-v1
 
 type Comment implements SubscribeEdge 
-@nodes(head:"ObjectNode", tail:"User")
+@nodes(head:"Content", tail:"User")
 @properties(binding: false, persistent: true, consumer: false, multiplicable: true)
 @labels(headSingular:"comment", headPlural: "comments", tailSingular: "commenter", tailPlural: "commenters")
 {
