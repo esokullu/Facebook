@@ -1,7 +1,7 @@
 # pho-graphql-v1
 
 type Like implements SubscribeEdge 
-@nodes(head:"ObjectNode", tail:"User")
+@nodes(head:"Content", tail:"User")
 @properties(binding: false, persistent: true, consumer: true, multiplicable: false)
 @labels(headSingular:"liked", headPlural: "likeds", tailSingular: "liker", tailPlural: "likers")
 {
