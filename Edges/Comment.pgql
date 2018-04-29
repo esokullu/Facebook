@@ -7,6 +7,5 @@ type Comment implements SubscribeEdge
 {
     id: ID!,
     content: String! @constraints(maxLength: 255),
-    create_time: Date! @now,
-    is_read: Boolean @default(Boolean: false)
+    create_time: Date! @now
 }
