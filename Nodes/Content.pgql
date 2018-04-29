@@ -1,13 +1,14 @@
 # pho-graphql-v1
 
 type Content implements ObjectNode 
-@edges(in:"Edges:Post, Edges:Like, Edges:Comment")
+@edges(in:"User:Post, User:Like, User:Comment")
 @permissions(mod: "0x07500", mask: "0xfffff") # owner can write, friends can read and like (subscribe)
 @properties(expires: 0, editable: false, volatile: false, revisionable: false) 
 {
     id: ID!,
-    url: String! @constraints(format: "url"),
-    thumb_url: String! @constraints(format: "url"),
+    source: String! @constraints(format: "url") @default(String: ""),
+    thumb_source: String! @constraints(format: "url") @default(String: ""),
     type: String! @default(string: "photo"),
+    metadata: String, # width, height etc.
     create_time: Date! @now
 }
