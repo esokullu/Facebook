@@ -7,5 +7,6 @@ type Message implements MentionEdge
 {
     id: ID!,
     content: String! @constraints(maxLength: 255), 
-    sent_time: Date! @now
+    sent_time: Date! @now,
+    is_read: Boolean @default(Boolean: false)
 }
